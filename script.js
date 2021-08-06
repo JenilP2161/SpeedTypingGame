@@ -1,5 +1,5 @@
 
-const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
+const RANDOM_QUOTE_API_URL = "https://type.fit/api/quotes";
 const quoteDisplayElement = document.getElementById("quoteDisplay")
 const quoteAuthorElement = document.getElementById("quoteAuthor")
 const quoteInputElement = document.getElementById("quoteInput")
