@@ -84,6 +84,7 @@ function getRandomQuote() {
         .then(response => response.json())
         // .then(data => data.content);
         .then(data => data);
+    console.log(RANDOM_QUOTE_API_URL);
 }
 
 async function renderNewQuote() {
