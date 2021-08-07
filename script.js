@@ -91,12 +91,6 @@ function showTime(){
     //renderNewQuote()
 }
 
-// function getRandomQuote() {
-//     return fetch(RANDOM_QUOTE_API_URL)
-//         .then(response => response.json())
-//         // .then(data => data.content);
-//         .then(data => data);
-// }
 
  function renderNewQuote() {
 
