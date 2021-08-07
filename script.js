@@ -1,5 +1,17 @@
 
- const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random";
+const quotes = [{ content: "Three things in human life are important. The first is to be kind. The second is to be kind. The third is to be kind.", author:"henry-james"},
+    { content: "One's philosophy is not best expressed in words; it is expressed in the choices one makes... and the choices we make are ultimately our responsibility.", author: "Eleanor Roosevelt" },
+    { content: "If I am not for myself, who will be for me? If I am not for others, what am I? And if not now, when?", author: "Rabbi Hillel" },
+    { content: "The first requisite for success is the ability to apply your physical and mental energies to one problem incessantly without growing weary.", author: "Thomas Edison" },
+    { content: "By accepting yourself and being fully what you are, your presence can make others happy.", author: "Jane Roberts" },
+    { content: "Gratitude is not only the greatest of virtues, but the parent of all the others.", author: "Cicero" },
+    { content: "When I dare to be powerful, to use my strength in the service of my vision, then it becomes less and less important whether I am afraid.", author: "Audre Lorde" },
+    { content: "Let us resolve to be masters, not the victims, of our history, controlling our own destiny without giving way to blind suspicions and emotions.", author: "John F. Kennedy" },
+    { content: "Prejudice is a burden that confuses the past, threatens the future and renders the present inaccessible.", author: "Maya Angelou" },
+    { content: "Spectacular achievement is always preceded by unspectacular preparation.", author: "Robert Schuller" },
+    { content: "One must be fond of people and trust them if one is not to make a mess of life.", author: "E. M. Forster"},
+    { content: "If one is estranged from oneself, then one is estranged from others too. If one is out of touch with oneself, then one cannot touch others.", author: "Anne Lindbergh" },
+    { content: "You will not be punished for your anger; you will be punished by your anger.", author: "Buddha" },]
 const quoteDisplayElement = document.getElementById("quoteDisplay")
 const quoteAuthorElement = document.getElementById("quoteAuthor")
 const quoteInputElement = document.getElementById("quoteInput")
@@ -79,22 +91,20 @@ function showTime(){
     //renderNewQuote()
 }
 
-function getRandomQuote() {
-    return fetch(RANDOM_QUOTE_API_URL)
-        .then(response => response.json())
-        // .then(data => data.content);
-        .then(data => data);
-        console.log(RANDOM_QUOTE_API_URL);
-}
+// function getRandomQuote() {
+//     return fetch(RANDOM_QUOTE_API_URL)
+//         .then(response => response.json())
+//         // .then(data => data.content);
+//         .then(data => data);
+// }
 
-async function renderNewQuote() {
+ function renderNewQuote() {
 
-    
+    const random = Math.floor(Math.random()*quotes.length)
     btnNextElement.value ="Next Quote ->"
-    const quote = await getRandomQuote();
     quoteDisplayElement.innerText = '' //quote.content;
-    quoteAuthorElement.innerText = quote.author;
-    quote.content.split('').forEach(character => {
+    quoteAuthorElement.innerText = quotes[random].author;
+    quotes[random].content.split('').forEach(character => {
         const characterSpan = document.createElement('span')
         characterSpan.innerText = character
         quoteDisplayElement.appendChild(characterSpan)
@@ -125,8 +135,3 @@ function nextQuote(){
 }
 
 renderNewQuote()
-
-
-
-
-
